@@ -6,6 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "babel src/ -d dist/"
   },
+  "private": false,
   "main": "dist/index.js",
   "files": [
     "dist"
