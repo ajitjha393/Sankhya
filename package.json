@@ -1,0 +1,28 @@
+{
+  "name": "sankhya",
+  "version": "0.0.1",
+  "description": "A functional-utility js library to transform objects into transformational graph",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src/ -d dist/"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ajitjha393/Sankhya.git"
+  },
+  "author": "Bishwajit Jha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ajitjha393/Sankhya/issues"
+  },
+  "homepage": "https://github.com/ajitjha393/Sankhya#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.16.12",
+    "@babel/preset-env": "^7.16.11"
+  }
+}
