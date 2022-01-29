@@ -1,5 +1,5 @@
 {
-  "name": "sankhya",
+  "name": "sankhya-graph-js",
   "version": "0.0.1",
   "description": "A functional-utility js library to transform objects into transformational graph",
   "scripts": {
