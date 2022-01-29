@@ -51,7 +51,10 @@ Here we can see that these functions are not independent which becomes a liabili
 
 
 Hidden Graph which is maintained by this stats 
+
+
 ![image](https://user-images.githubusercontent.com/42679346/151663228-6b684600-ed42-4386-abc0-6715c9fb87ba.png)
+
 
 Using `sankhya`, we can refactor stats to this very declarative, robust and structured form, using a map from keywords to keyword functions:
 
