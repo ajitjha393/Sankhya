@@ -2,7 +2,7 @@ const DATA_ATTRIBUTE = Symbol('SANKHYA_DATA_ATTRIBUTE')
 
 const pipe = (...fn) => (args) => fn.reduce((f, g) => g(f), args)
 
-export default function sankhya(outputTemplate) {
+function sankhya(outputTemplate) {
     const memoizedDataBinder = memoizedGetter(outputTemplate)
     const transform = (i) => materialize(memoizedDataBinder(i))
     transform.lazy = (i) => memoizedDataBinder(i)
@@ -63,3 +63,5 @@ function dataAttributeProxy(data) {
     })
 }
 
+
+module.exports = sankhya
