@@ -41,7 +41,7 @@ console.log(transformedObj)
 
 Problems with the above approach: 
 
-Here the drawbback of this approach is that each of these transformation function are dependent on the ones above it.
+Here the drawback of this approach is that each of these transformation function are dependent on the ones above it.
 Hence we have to make sure that proper dependency order is maintained.
  
 So if you try to exchange the order of the definition of these functions it will blow up.
@@ -76,11 +76,13 @@ console.log(transformedObj)
 
 ```
 
-### Explanation: 
+## Explanation: 
+
 
 Every output transformation is pure and expressed with an arrow function, where the i and o parameters represent input (data) and output (the future returned object) respectively.
 
 We can express output values in function of other output values, `sankhya` will understand the underlying graph and execute the statements in the right order!
+Ordering of the definition of these functions can be arbitrary 
 
 Moreover, each micro-function in the object values is executed exacly once, and the result cached for next calls.
 (You can verify this by logging from inside the arrow functions)
@@ -88,12 +90,13 @@ Moreover, each micro-function in the object values is executed exacly once, and 
 This is why the given functions need to be pure.
 
 
-### Validation 
+## Validation 
+
 
 Before performing any transformation `sankhya` validates input data, and throws if a property on input is non-existant.
 
 ```js
-	function dataAttributeProxy(data) {
+function dataAttributeProxy(data) {
     return new Proxy(data, {
         get: (t, p, r) => {
             if (p in t) {
@@ -105,3 +108,41 @@ Before performing any transformation `sankhya` validates input data, and throws 
 }
 
  ```
+
+## Laziness 
+
+
+Sometimes we define a heavy computation function, rich of all the data we might need, but somewhere we need only a subset of these.
+
+But in the traditional way we can't achieve this without actually triggering all of the computations
+
+For these cases we have `.lazy`. 
+
+For example, suppose we only need the mean of our data:
+
+```js 
+const data = { values: [1,2,3,4,5,6,7] }
+const transformed = stats.lazy(data)
+
+// The object is initially empty:
+console.log(transformed)
+// -> Object {}
+
+// We materialize and objectify the computations as they are needed:
+console.log(transformed.mean)
+// -> 4
+
+// The results are then attached to the object,
+// but anything we don't need is not computed:
+
+console.log(transformed)
+// -> Object {count: 7, mean: 4}
+
+``` 
+
+This is made possible by using prototype getters.
+
+This also guarantees to execute the minimum of necessary steps to get the result.
+
+
+
