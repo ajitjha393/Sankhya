@@ -73,6 +73,7 @@ const stats = sankhya({
 
 const tranformedObj = stats({ values: [1,2,3,4,5,6,7] })
 console.log(transformedObj)
+// -> Object {count: 7, meanSquare: 20, mean: 4, variance: 4}
 
 ```
 
