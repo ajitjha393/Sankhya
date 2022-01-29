@@ -3,6 +3,15 @@ Sankhya, a JavaScript utility-library to declaratively transform an Object into 
 
 This is inspired from [Pluming](https://github.com/plumatic/plumbing) Clojure library 
 
+## Installation 
+
+```
+npm i sankhya-graph-js 
+or 
+yarn add sankhya-graph-js
+
+```
+
 ## Example
 
 Traditional way of defining Transformation:
