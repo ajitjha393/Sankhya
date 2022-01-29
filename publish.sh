@@ -9,10 +9,10 @@ if [[ ! -z $(git status -s) ]]; then
 fi
 
 rm -rf dist || true
-#npm run build
+npm run build
 cp LICENSE dist/LICENSE
 cp README.md dist/README.md
 cp package.json dist/package.json
 npm publish
 git tag $(cat package.json | grep version | sed -r 's/.*"version": "(.*)".*/v\1/')
-#rm -r dist
+rm -r dist
