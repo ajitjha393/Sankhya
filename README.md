@@ -80,7 +80,7 @@ const stats = sankhya({
     mean:       (i, o) => i.values.reduce(sum) / o.count,
 })
 
-const tranformedObj = stats({ values: [1,2,3,4,5,6,7] })
+const transformedObj = stats({ values: [1,2,3,4,5,6,7] })
 console.log(transformedObj)
 // -> Object {count: 7, meanSquare: 20, mean: 4, variance: 4}
 
@@ -112,7 +112,7 @@ function dataAttributeProxy(data) {
             if (p in t) {
                 return t[p]
             }
-            throw new Error(`Data object is missing key ${key}`)
+            throw new Error(`Data object is missing key ${p}`)
         }
     })
 }
