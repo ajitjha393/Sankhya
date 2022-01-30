@@ -1,7 +1,7 @@
 # Sankhya
 Sankhya, a JavaScript utility-library to declaratively transform an Object into another using pure transformation functions.
 
-This is inspired from [Pluming](https://github.com/plumatic/plumbing) Clojure library 
+This is inspired from [Plumbing](https://github.com/plumatic/plumbing) Clojure library 
 
 ## Installation 
 
