@@ -9,6 +9,7 @@ if [[ ! -z $(git status -s) ]]; then
 fi
 
 rm -rf dist || true
+npm run test
 npm run build
 cp LICENSE dist/LICENSE
 cp README.md dist/README.md
