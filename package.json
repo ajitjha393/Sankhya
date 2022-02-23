@@ -6,20 +6,16 @@
     "test": "jest",
     "build": "babel src/ -d dist/",
     "lint": "prettier --check .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "prepare": "husky install"
   },
   "private": false,
   "main": "dist/index.js",
   "files": [
     "dist"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
-    "*": "prettier --write"
+    "*.{js,css,md}": "prettier --write"
   },
   "repository": {
     "type": "git",
@@ -35,11 +31,9 @@
     "@babel/cli": "^7.16.8",
     "@babel/core": "^7.16.12",
     "@babel/preset-env": "^7.16.11",
+    "husky": "^7.0.4",
     "jest": "^27.5.1",
-    "lint-staged": "^12.3.4",
+    "lint-staged": ">=10",
     "prettier": "^2.5.1"
-  },
-  "dependencies": {
-    "husky": "^7.0.4"
   }
 }

@@ -11,8 +11,8 @@ function objectOwnKeys(o) {
 function objectAllKeys(o) {
   const allKeys = []
   for (let k in o) {
-      allKeys.push(k)
- }
+    allKeys.push(k)
+  }
 
   return allKeys.sort(), allKeys
 }
@@ -34,28 +34,27 @@ test('sankhya with only input object', () => {
   expect(objectAllKeys(output)).toEqual(['fullName', 'initials'])
 })
 
-
+// Passing input and / or output to sankhya
 test('sankhya with diff combination of input and output', () => {
-    const transform = sankhya({
-      fullName: i => `${i.firstName} ${i.lastName}`,
-      firstInitial: i => i.firstName.at(0).toUpperCase(),
-      lastInitial: i => i.lastName.at(0).toUpperCase(),
-      initials: (_, o) => `${o.firstInitial}.${o.lastInitial}.`,
-      fullNameBirth: (i, o) => `${o.fullName}, born ${i.DOB}`,
-    })
+  const transform = sankhya({
+    fullName: i => `${i.firstName} ${i.lastName}`,
+    firstInitial: i => i.firstName.at(0).toUpperCase(),
+    lastInitial: i => i.lastName.at(0).toUpperCase(),
+    initials: (_, o) => `${o.firstInitial}.${o.lastInitial}.`,
+    fullNameBirth: (i, o) => `${o.fullName}, born ${i.DOB}`,
+  })
 
-const output = transform({
-firstName: 'Bishwajit', lastName: 'Jha',
+  const output = transform({
+    firstName: 'Bishwajit',
+    lastName: 'Jha',
+    DOB: '27 May 2000',
+  })
 
-DOB: '27 May 2000' 
-    })
-
-    expect(output).toEqual({
-        fullName: 'Bishwajit Jha',
-        firstInitial: 'B',
-        lastInitial: 'J',
-        initials: 'B.J.',
-        fullNameBirth: 'Bishwajit Jha, born 27 May 2000'       
-    })
-
-}) 
+  expect(output).toEqual({
+    fullName: 'Bishwajit Jha',
+    firstInitial: 'B',
+    lastInitial: 'J',
+    initials: 'B.J.',
+    fullNameBirth: 'Bishwajit Jha, born 27 May 2000',
+  })
+})
