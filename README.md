@@ -159,3 +159,22 @@ This is made possible by using prototype getters.
 
 This also guarantees to execute the minimum of necessary steps to get the
 result.
+
+## Type Definitions -
+
+```ts
+export type sankhyaConfig<I, O> = {
+  [K in keyof O]: (i: I, o: O) => O[K]
+}
+
+interface sankhyaTransformer<I, O> {
+  (input: I): O
+  lazy: (input: I) => O
+}
+
+declare function sankhya<I = Record<string, any>, O = Record<string, any>>(
+  config: sankhyaConfig<I, O>,
+): sankhyaTransformer<I, O>
+
+export default sankhya
+```
