@@ -1,6 +1,6 @@
 {
   "name": "sankhya-graph-js",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "A functional-utility js library to transform objects into transformational graph",
   "scripts": {
     "test": "jest",
@@ -12,10 +12,11 @@
   "private": false,
   "main": "dist/index.js",
   "files": [
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
   "lint-staged": {
-    "*.{js,css,md}": "prettier --write"
+    "*.{ts,js,css,md}": "prettier --write"
   },
   "repository": {
     "type": "git",
